@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+    web:
+        build: .
+        ports:
+            - "8080:80"
+        depends_on:
+            - db
+    db:
+        build: ./SQL
+        image: sqlupsert
+        environment:
+            SA_PASSWORD: "VeRYSECR3T!"
+            ACCEPT_EULA: "Y"
+        ports:
+            - "1433:1433"

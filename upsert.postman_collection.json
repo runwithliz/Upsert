@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "a72ae83e-b1c6-4c76-8077-aca1392b583b",
+		"name": "upsert",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8080/Product/4",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Product",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Fancy Product Review",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"description\":\"Fancy Product\",\"productReviews\":[{\"comment\":\"It is very fancy!\",\"user\":{\"userName\":\"Nice User\"}}]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Additional Review",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productId\": 2,\r\n    \"description\": \"Fancy Product\",\r\n    \"productReviews\": [\r\n        {\r\n            \"productId\": 2,\r\n            \"comment\": \"Works well!\",\r\n            \"userId\": 3,\r\n            \"user\": {\r\n                \"userId\": 3,\r\n                \"userName\": \"Nice User\"\r\n            }\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Additional Review, no updates",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productId\": 2,\r\n    \"productReviews\": [\r\n        {\r\n            \"productId\": 2,\r\n            \"comment\": \"No Updates?\",\r\n            \"userId\": 3\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Product"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
